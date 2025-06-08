@@ -29,6 +29,13 @@ web_ingress_rules = [
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  },
+   {
+    description = "Allow ssh-access"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 ]
 
