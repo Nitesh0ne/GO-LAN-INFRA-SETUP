@@ -3,6 +3,7 @@ variable "aws_region" {
   description = "AWS region"
 }
 
+
 variable "vpc_cidr" {
   type        = string
   description = "CIDR block for the VPC"
@@ -72,17 +73,17 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "subnet_id" {
-  description = "Subnet ID for the EC2 instance"
-  type        = string
-}
+
 
 variable "key_name" {
   description = "EC2 key pair name"
   type        = string
 }
 
-variable "environment" {
-  description = "Environment name (dev, prod)"
-  type        = string
+variable "file_path" {
+  description = "*"
+  type = string
 }
+
+
+

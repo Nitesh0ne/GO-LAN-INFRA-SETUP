@@ -1,6 +1,6 @@
 # vpc
 module "vpc" {
-  source              = "./modules/vpc"
+  source              = "../../modules/vpc"
   vpc_cidr            = var.vpc_cidr
   public_subnet_cidr  = var.public_subnet_cidr
   private_subnet_cidr = var.private_subnet_cidr
@@ -12,9 +12,9 @@ module "vpc" {
 
 # Security group for web 
 module "web_sg" {
-  source      = "./modules/security_group"
+  source      = "../../modules/security_group"
   name        = "web-sg"
-  vpc_id      = aws_vpc.dev_vpc.id
+  vpc_id      = module.vpc.vpc_id
   description = "Web security group"
 
   ingress_rules = var.web_ingress_rules
@@ -23,9 +23,9 @@ module "web_sg" {
 
 # Security group go db
 module "db_sg" {
-  source      = "./modules/security_group"
+  source      = "../../modules/security_group"
   name        = "db-sg"
-  vpc_id      = aws_vpc.dev_vpc.id
+  vpc_id      = module.vpc.vpc_id
   description = "DB security group"
 
   ingress_rules = [
@@ -45,16 +45,14 @@ module "db_sg" {
 # ec2 instance 
 
 module "ec2_instance" {
-  source = "./modules/ec2_instance"
-  ami           = var.ami_id
+  source        = "../../modules/ec2_instance"
+  ami_id          = var.ami_id
   instance_type = var.instance_type
   subnet_id     = var.public_subnet_cidr
   key_name      = var.key_name
+  file_path = var.file_path 
+  environment = var.environment
 
-  tags = {
-    Name        = "${var.environment}-app-server"
-    Environment = var.environment
-  }
-  user_data="${path.module}/install_minikube.sh"
+
 
 }

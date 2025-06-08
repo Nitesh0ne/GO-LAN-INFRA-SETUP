@@ -23,3 +23,8 @@ variable "environment" {
   description = "Environment name (dev, prod)"
   type        = string
 }
+
+variable "file_path" {
+  description ="*"
+  type = string
+}
