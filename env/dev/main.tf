@@ -3,7 +3,7 @@ module "vpc" {
   source              = "../../modules/vpc"
   vpc_cidr            = var.vpc_cidr
   public_subnet_cidr  = var.public_subnet_cidr
-  private_subnet_cidr = var.private_subnet_cidr
+
   az1                 = var.az1
   az2                 = var.az2
   environment         = var.environment
@@ -21,38 +21,34 @@ module "web_sg" {
   egress_rules  = var.common_egress_rules
 }
 
-# Security group go db
-module "db_sg" {
-  source      = "../../modules/security_group"
-  name        = "db-sg"
-  vpc_id      = module.vpc.vpc_id
-  description = "DB security group"
+# ec2 instance 
 
-  ingress_rules = [
-    {
-      description     = "Allow PostgreSQL from web_sg"
-      from_port       = 5432
-      to_port         = 5432
-      protocol        = "tcp"
-      cidr_blocks     = []
-      security_groups = [module.web_sg.security_group_id]
-    }
-  ]
+data "aws_ami" "ubuntu" {
+  most_recent = true
 
-  egress_rules = var.common_egress_rules
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["amazon"] # Canonical
 }
 
-# ec2 instance 
 
 module "ec2_instance" {
   source        = "../../modules/ec2_instance"
-  ami_id          = var.ami_id
+  ami_id          = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  subnet_id     = var.public_subnet_cidr
+  subnet_id     = module.vpc.public_subnet_id
   key_name      = var.key_name
-  file_path = var.file_path 
+  user_data = file("${path.module}/install_minikube.sh")
+  security_group_ids = [module.web_sg.security_group_id]
+  
   environment = var.environment
-
-
 
 }

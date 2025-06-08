@@ -24,7 +24,16 @@ variable "environment" {
   type        = string
 }
 
-variable "file_path" {
-  description ="*"
+
+
+variable "security_group_ids" {
+  description = "List of security group IDs to associate"
+  type = list(string)
+}
+
+variable "user_data" {
+  description = "user data script"
   type = string
+  
+  
 }
