@@ -1,9 +1,6 @@
-output "instance_id" {
+output "dev_k8s_node_metadata" {
   description = "ID of the EC2 instance"
-  value       = aws_instance.app_server.id
+  value       = [aws_instance.dev_k8s_node.id,aws_instance.dev_k8s_node.public_ip]
 }
 
-output "public_ip" {
-  description = "Public IP of the EC2 instance"
-  value       = aws_instance.app_server.public_ip
-}
+

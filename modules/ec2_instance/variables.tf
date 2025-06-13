@@ -1,17 +1,7 @@
-variable "ami_id" {
-  description = "AMI ID to use for the EC2 instance"
-  type        = string
-}
 
-variable "instance_type" {
-  description = "EC2 instance type"
-  type        = string
-  default     = "t2.micro"
-}
-
+variable "instance_type" {}
 variable "subnet_id" {
-  description = "Subnet ID for the EC2 instance"
-  type        = string
+  description = "Subnet ID for the EC2 instance" 
 }
 
 variable "key_name" {
@@ -34,6 +24,4 @@ variable "security_group_ids" {
 variable "user_data" {
   description = "user data script"
   type = string
-  
-  
 }
