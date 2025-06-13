@@ -10,4 +10,4 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
 sudo usermod -aG docker ubuntu
-minikube start --driver=none
+sudo minikube start --driver=none 

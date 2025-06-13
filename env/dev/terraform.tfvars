@@ -1,9 +1,9 @@
-aws_region          = "us-east-1"
+
 vpc_cidr            = "172.16.0.0/16"
 public_subnet_cidr  = "172.16.1.0/24"
 
 az1                 = "us-east-1a"
-az2                 = "us-east-1b"
+
 environment         = "dev"
 
 
@@ -52,8 +52,9 @@ common_egress_rules = [
 
 
 # varible for ec2 instance
-
-ami_id        = "ami-05c17b22914ce7378"
 instance_type = "t2.medium"
 key_name      = "minikube"
 file_path  = "./install_minikube.sh"
+
+
+bucket_name = "golang-infra-state-store1010"

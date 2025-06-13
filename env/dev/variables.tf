@@ -1,7 +1,4 @@
-variable "aws_region" {
-  type        = string
-  description = "AWS region"
-}
+
 
 # variable for vpc
 variable "vpc_cidr" {
@@ -21,10 +18,7 @@ variable "az1" {
   description = "Availability zone for the public subnet"
 }
 
-variable "az2" {
-  type        = string
-  description = "Availability zone for the private subnet"
-}
+
 
 variable "environment" {
   type        = string
@@ -59,10 +53,7 @@ variable "common_egress_rules" {
 }
 
 # varaiblae for ec2instance
-variable "ami_id" {
-  description = "AMI ID to use for the EC2 instance"
-  type        = string
-}
+
 
 variable "instance_type" {
   description = "EC2 instance type"
@@ -84,3 +75,9 @@ variable "file_path" {
 
 
 
+
+
+variable "bucket_name" {
+  description = "this bucket store the state file of dev and prod environment"
+  
+}

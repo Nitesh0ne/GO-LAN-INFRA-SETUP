@@ -1,12 +1,12 @@
 # vpc
 module "vpc" {
   source              = "../../modules/vpc"
-  vpc_cidr            = var.vpc_cidr
-  public_subnet_cidr  = var.public_subnet_cidr
-
-  az1                 = var.az1
-  az2                 = var.az2
+  
   environment         = var.environment
+  public_subnet_cidr  = var.public_subnet_cidr
+  az1                 = var.az1
+  vpc_cidr            = var.vpc_cidr
+                 
 }
 
 
@@ -23,26 +23,10 @@ module "web_sg" {
 
 # ec2 instance 
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["amazon"] # Canonical
-}
-
 
 module "ec2_instance" {
   source        = "../../modules/ec2_instance"
-  ami_id          = data.aws_ami.ubuntu.id
+
   instance_type = var.instance_type
   subnet_id     = module.vpc.public_subnet_id
   key_name      = var.key_name
@@ -51,4 +35,11 @@ module "ec2_instance" {
   
   environment = var.environment
 
+}
+
+module "aws_s3_bucket" {
+  source = "../../modules/s3-bucket"
+  bucket_name = var.bucket_name 
+
+  
 }
