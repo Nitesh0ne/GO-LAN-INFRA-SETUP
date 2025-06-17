@@ -26,8 +26,6 @@ variable "dev_egress_rules" {
 }
 
 # varaiblae for ec2instance
-
-
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
@@ -44,10 +42,4 @@ variable "key_name" {
 variable "file_path" {
   description = "*"
   type        = string
-}
-
-
-variable "bucket_name" {
-  description = "this bucket store the state file of dev and prod environment"
-
 }

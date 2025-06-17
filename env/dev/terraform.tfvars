@@ -49,4 +49,3 @@ dev_egress_rules = [
 instance_type = "t2.medium"
 key_name      = "minikube"
 file_path     = "./install_minikube.sh"
-bucket_name   = "golang-infra-state-store1010"
