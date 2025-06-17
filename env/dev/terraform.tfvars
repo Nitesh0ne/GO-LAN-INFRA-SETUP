@@ -1,14 +1,8 @@
 
-vpc_cidr            = "172.16.0.0/16"
-public_subnet_cidr  = "172.16.1.0/24"
-
-az1                 = "us-east-1a"
-
-environment         = "dev"
 
 
 # varaible Decalration for security group
-web_ingress_rules = [
+dev_ingress_rules = [
   {
     description = "Allow HTTP"
     from_port   = 80
@@ -30,7 +24,7 @@ web_ingress_rules = [
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   },
-   {
+  {
     description = "Allow ssh-access"
     from_port   = 22
     to_port     = 22
@@ -39,7 +33,7 @@ web_ingress_rules = [
   }
 ]
 
-common_egress_rules = [
+dev_egress_rules = [
   {
     from_port   = 0
     to_port     = 0
@@ -54,7 +48,5 @@ common_egress_rules = [
 # varible for ec2 instance
 instance_type = "t2.medium"
 key_name      = "minikube"
-file_path  = "./install_minikube.sh"
-
-
-bucket_name = "golang-infra-state-store1010"
+file_path     = "./install_minikube.sh"
+bucket_name   = "golang-infra-state-store1010"

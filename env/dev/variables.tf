@@ -1,33 +1,6 @@
 
-
-# variable for vpc
-variable "vpc_cidr" {
-  type        = string
-  description = "CIDR block for the VPC"
-}
-
-variable "public_subnet_cidr" {
-  type        = string
-  description = "CIDR block for the public subnet"
-}
-
-
-
-variable "az1" {
-  type        = string
-  description = "Availability zone for the public subnet"
-}
-
-
-
-variable "environment" {
-  type        = string
-  description = "Environment name (e.g., dev, prod)"
-}
-
-
 ## Vaiable Declaration for security group
-variable "web_ingress_rules" {
+variable "dev_ingress_rules" {
   type = list(object({
     description     = string
     from_port       = number
@@ -38,7 +11,7 @@ variable "web_ingress_rules" {
   }))
 }
 
-variable "common_egress_rules" {
+variable "dev_egress_rules" {
   type = list(object({
     from_port        = number
     to_port          = number
@@ -70,14 +43,11 @@ variable "key_name" {
 
 variable "file_path" {
   description = "*"
-  type = string
+  type        = string
 }
-
-
-
 
 
 variable "bucket_name" {
   description = "this bucket store the state file of dev and prod environment"
-  
+
 }

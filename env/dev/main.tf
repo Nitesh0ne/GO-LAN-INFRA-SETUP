@@ -1,45 +1,50 @@
-# vpc
+#Dev VPC 
+locals {
+  environment = "dev"
+}
 module "vpc" {
-  source              = "../../modules/vpc"
-  
-  environment         = var.environment
-  public_subnet_cidr  = var.public_subnet_cidr
-  az1                 = var.az1
-  vpc_cidr            = var.vpc_cidr
-                 
+  source             = "../../modules/vpc"
+  vpc_cidr           = "172.16.0.0/16"
+  public_subnet_cidr = "172.16.1.0/24"
+  az1                = "us-east-1a"
+  environment        = local.environment
 }
 
-
 # Security group for web 
-module "web_sg" {
-  source      = "../../modules/security_group"
-  name        = "web-sg"
-  vpc_id      = module.vpc.vpc_id
-  description = "Web security group"
-
-  ingress_rules = var.web_ingress_rules
-  egress_rules  = var.common_egress_rules
+module "dev_sg" {
+  source        = "../../modules/security_group"
+  name          = "dev-sg"
+  vpc_id        = module.vpc.vpc_id
+  description   = "Dev security group"
+  ingress_rules = var.dev_ingress_rules
+  egress_rules  = var.dev_egress_rules
 }
 
 # ec2 instance 
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
 
-module "ec2_instance" {
-  source        = "../../modules/ec2_instance"
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
 
-  instance_type = var.instance_type
-  subnet_id     = module.vpc.public_subnet_id
-  key_name      = var.key_name
-  user_data = file("${path.module}/install_minikube.sh")
-  security_group_ids = [module.web_sg.security_group_id]
-  
-  environment = var.environment
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 
+  owners = ["amazon"] # Canonical
 }
 
-module "aws_s3_bucket" {
-  source = "../../modules/s3-bucket"
-  bucket_name = var.bucket_name 
-
-  
+module "ec2_instance" {
+  source          = "../../modules/ec2_instance"
+  instance_ami    = data.aws_ami.ubuntu.id
+  instance_type   = "t2.micro"
+  instance_subnet = module.vpc.public_subnet_id
+  key_name        = "minikube.pem"
+  user_data       = file("${path.module}/install_minikube.sh")
+  instance_sg     = [module.dev_sg.security_group_id]
+  environment     = local.environment
 }

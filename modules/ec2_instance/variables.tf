@@ -1,6 +1,11 @@
 
-variable "instance_type" {}
-variable "subnet_id" {
+variable "instance_ami" {
+  
+}
+variable "instance_type" {
+
+}
+variable "instance_subnet" {
   description = "Subnet ID for the EC2 instance" 
 }
 
@@ -15,8 +20,7 @@ variable "environment" {
 }
 
 
-
-variable "security_group_ids" {
+variable "instance_sg" {
   description = "List of security group IDs to associate"
   type = list(string)
 }

@@ -1,6 +1,6 @@
-output "dev_k8s_node_metadata" {
+output "instance_metadata" {
   description = "ID of the EC2 instance"
-  value       = [aws_instance.dev_k8s_node.id,aws_instance.dev_k8s_node.public_ip]
+  value       = [aws_instance.this.id,aws_instance.this.public_ip,aws_instance.this.private_ip]
 }
 
 

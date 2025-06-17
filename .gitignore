@@ -2,3 +2,5 @@ env/dev/.terraform/
 .terraform.lock.*
 terraform.tfstate
 terraform.tfstate.backup
+boot-strap/.terraform/
+boot-strap/.terraform.lock.*
