@@ -1,0 +1,43 @@
+1. Creating cluster
+kops create cluster --name=k8s.niteshnepali.com.np \
+--state=s3://niteshnepali.com.np \ 
+--zones=us-east-1a,us-east-1b \
+--node-count=2 \
+--control-plane-count=1 \
+--node-size=t3.medium \
+--control-plane-size=t3.medium \
+--control-plane-zones=us-east-1a \
+--control-plane-volume-size 10 \
+--node-volume-size 10 \
+--ssh-public-key ~/.ssh/id_rsa.pub \
+--dns-zone=niteshnepali.com.np \
+--dry-run \
+--out yaml
+
+2. kops  create cluster -f cluster.yml
+3. kops update cluster --name=k8s.niteshnepali.com.np --out=. --target=terraform
+
+suggestions:
+ * validate cluster: kops validate cluster --wait 10m
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to a control-plane node: ssh -i ~/.ssh/id_rsa ubuntu@api.k8s.niteshnepali.com.np
+   terraform plan
+   terraform apply
+
+Suggestions:
+ * validate cluster: kops validate cluster --wait 10m
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to a control-plane node: ssh -i ~/.ssh/id_rsa ubuntu@api.k8s.niteshnepali.com.np
+
+Suggestions:
+ * validate cluster: kops validate cluster --wait 10m
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to a control-plane node: ssh -i ~/.ssh/id_rsa ubuntu@api.k8s.niteshnepali.com.np
+ * validate cluster: kops validate cluster --wait 10m
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to a control-plane node: ssh -i ~/.ssh/id_rsa ubuntu@api.k8s.niteshnepali.com.np
+ * the ubuntu user is specific to Ubuntu. If not using Ubuntu please use the appropriate user based on your OS.
+ * read about installing addons at: https://kops.sigs.k8s.io/addons.
+
+=================================================================================================
+Configuring Prometheus for kubernetes cluster
