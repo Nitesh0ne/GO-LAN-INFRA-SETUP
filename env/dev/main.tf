@@ -43,7 +43,7 @@ module "ec2_instance" {
   instance_ami    = data.aws_ami.ubuntu.id
   instance_type   = "t2.micro"
   instance_subnet = module.vpc.public_subnet_id
-  key_name        = "minikube.pem"
+  key_name        = "master.pem"
   user_data       = file("${path.module}/install_minikube.sh")
   instance_sg     = [module.dev_sg.security_group_id]
   environment     = local.environment
