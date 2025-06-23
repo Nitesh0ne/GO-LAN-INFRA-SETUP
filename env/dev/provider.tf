@@ -4,7 +4,7 @@ provider "vault" {
 }
 
 data "vault_generic_secret" "aws_creds" {
-  path = "aws-creds/data/aws"
+  path = "aws_creds/aws"
 }
 
 
