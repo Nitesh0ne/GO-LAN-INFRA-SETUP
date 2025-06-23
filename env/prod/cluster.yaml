@@ -1,0 +1,135 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: Cluster
+metadata:
+  creationTimestamp: null
+  name: k8s.niteshnepali.com.np
+spec:
+  api:
+    dns: {}
+  authorization:
+    rbac: {}
+  channel: stable
+  cloudProvider: aws
+  configBase: s3://niteshnepali.com.np/k8s.niteshnepali.com.np
+  dnsZone: niteshnepali.com.np
+  etcdClusters:
+  - cpuRequest: 200m
+    etcdMembers:
+    - encryptedVolume: true
+      instanceGroup: control-plane-us-east-1a
+      name: a
+    manager:
+      backupRetentionDays: 90
+    memoryRequest: 100Mi
+    name: main
+  - cpuRequest: 100m
+    etcdMembers:
+    - encryptedVolume: true
+      instanceGroup: control-plane-us-east-1a
+      name: a
+    manager:
+      backupRetentionDays: 90
+    memoryRequest: 100Mi
+    name: events
+  iam:
+    allowContainerRegistry: true
+    legacy: false
+  kubeProxy:
+    enabled: false
+  kubelet:
+    anonymousAuth: false
+  kubernetesApiAccess:
+  - 0.0.0.0/0
+  - ::/0
+  kubernetesVersion: 1.32.4
+  masterPublicName: api.k8s.niteshnepali.com.np
+  networkCIDR: 172.20.0.0/16
+  networking:
+    cilium:
+      enableNodePort: true
+  nonMasqueradeCIDR: 100.64.0.0/10
+  sshAccess:
+  - 0.0.0.0/0
+  - ::/0
+  subnets:
+  - cidr: 172.20.0.0/17
+    name: us-east-1a
+    type: Public
+    zone: us-east-1a
+  - cidr: 172.20.128.0/17
+    name: us-east-1b
+    type: Public
+    zone: us-east-1b
+  topology:
+    dns:
+      type: Public
+
+---
+
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: null
+  labels:
+    kops.k8s.io/cluster: k8s.niteshnepali.com.np
+  name: control-plane-us-east-1a
+spec:
+  image: ami-020cba7c55df1f615
+  machineType: t3.medium
+  maxSize: 1
+  minSize: 1
+  role: Master
+  rootVolumeSize: 10
+  subnets:
+  - us-east-1a
+
+---
+
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: null
+  labels:
+    kops.k8s.io/cluster: k8s.niteshnepali.com.np
+  name: nodes-us-east-1a
+spec:
+  image: ami-020cba7c55df1f615
+  machineType: t3.medium
+  maxSize: 1
+  minSize: 1
+  role: Node
+  rootVolumeSize: 10
+  subnets:
+  - us-east-1a
+
+---
+
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: null
+  labels:
+    kops.k8s.io/cluster: k8s.niteshnepali.com.np
+  name: nodes-us-east-1b
+spec:
+  image: ami-020cba7c55df1f615
+  machineType: t3.medium
+  maxSize: 1
+  minSize: 1
+  role: Node
+  rootVolumeSize: 10
+  subnets:
+  - us-east-1b
+
+---
+
+apiVersion: kops.k8s.io/v1alpha2
+kind: SSHCredential
+metadata:
+  creationTimestamp: null
+  labels:
+    kops.k8s.io/cluster: k8s.niteshnepali.com.np
+  name: admin
+spec:
+  publicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCmnfV19mbGR9tKNI0BiQdHrdtt4mraY8eysmI0jl1inICpG6ieYA2Bd1S8AWoSFq0KRhWjPEKkdoDI2IqNdU9eFADlc4kbMiX3OTjXIzA9gpxgo/PnDkV4dpeVDS4F5Yel2Yz90ljoY6FMRCrMGGMbvX9K+17+D/605eIt439kRBKeXp3aaGVZU+87eSYaHDUHi6qoV75nQxrzNNYtaG6sTTytbwkgsXIazJW3i46grJb2wTi0PVTy6CB70IuQWo1JIvl4UvOCvvnAq4Cu00bpBK3+4m+fqvsbtpXHQM/pe5jGdqh6nC98UwIuxuLazNf4M7N03IiOcFczfLjZX9JbVnaVcBzUcSoVvuDJYR4Cygjal78sLOEJpGw0pX2t+kuTcoIisY+uS+pv3KfrouabUOumNu4kKhcGU5JX9tp8YWJCIsTnwJNc+dlBOqTx9MSlZ35e50eqRlXcN6rXNzSwp9UKqvKS0Gae5B8zkxHMrr0f/6DC5fgHQkYiEqmLKPX0/FWE+dN9jxVPFiiLXSvG77LBA4/UKLsAB6g4CPNbCpiEng99UZWJKGlYFRUxORwSz99V8VFxs4dRZbMj4G1TuF47vogotxjbfN/I/XzE1EYOTN2UVDvA6/5jTCxkgEYJDOMB7DxhXEuJJlF70Em70xjgpHwcoZrRwi6nrBU7rw==
+    pingnitesh07@gmail.com
