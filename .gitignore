@@ -1,5 +1,7 @@
 env/dev/.terraform/
-env/prod/.terraform/
+env/prod/.terraform/*
+env/prod/.terraform.lock*
+
 .terraform.lock.*
 terraform.tfstate
 terraform.tfstate.backup

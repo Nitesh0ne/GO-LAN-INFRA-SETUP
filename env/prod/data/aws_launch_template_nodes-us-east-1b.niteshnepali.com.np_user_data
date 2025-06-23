@@ -126,11 +126,32 @@ ensure-install-dir
 
 cat > conf/kube_env.yaml << '__EOF_KUBE_ENV'
 CloudProvider: aws
-ClusterName: k8s.niteshnepali.com.np
-ConfigBase: s3://niteshnepali.com.np/k8s.niteshnepali.com.np
-InstanceGroupName: control-plane-us-east-1a
-InstanceGroupRole: ControlPlane
-NodeupConfigHash: 1QmMnFhEIAmoZOJhtriqcKJvujhUqsjOKIuZIIgE+94=
+ClusterName: niteshnepali.com.np
+ConfigServer:
+  CACertificates: |
+    -----BEGIN CERTIFICATE-----
+    MIIC+DCCAeCgAwIBAgIMGEuvK5CY1jDW04I+MA0GCSqGSIb3DQEBCwUAMBgxFjAU
+    BgNVBAMTDWt1YmVybmV0ZXMtY2EwHhcNMjUwNjIxMTMzMTIyWhcNMzUwNjIxMTMz
+    MTIyWjAYMRYwFAYDVQQDEw1rdWJlcm5ldGVzLWNhMIIBIjANBgkqhkiG9w0BAQEF
+    AAOCAQ8AMIIBCgKCAQEAtYEfQhrgIj1tBHKuJrXi3EpTeUMb8rgUrz5xrkMeVy6A
+    iHGPk1dRWxLtGB+4vMRDk9Ao1IyKUVWI0/E73dTE2OSF78rZcthBaM2f+B/jkU6+
+    Sru1MJKizAenFHgL1OS/spJ4CER3NdKnKqLbcczDoblTDaByenOlr6WOuFjZTTVg
+    wsTGBqu4oSqXGYZ6f0RC714OM1XTDM3y4nRC22W6W7U+3QePonR9EHlaQvBumEcq
+    cfelYmyDnKBhNYUJ4CU8eGhLT897fYLWVcracl/MP83h6mkoRMJphKarWsHzK0Dk
+    LR18wPdBk4eujYos+kqA0gRYV0DaYL68XKBNkrKwQwIDAQABo0IwQDAOBgNVHQ8B
+    Af8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU7Mu+1li7NzxZxjyu
+    rqIjUOGjCcQwDQYJKoZIhvcNAQELBQADggEBADvTbWeCe+bRFEPrhE4VJi8k1rUI
+    GDUncNrxd7nYCsxGpirW+SA2m1Fa5LmYUkqM+nqmSwbzZvEPuoMV0d+8mlkLeXgz
+    1OLuhwPdv1uTRf/neihw+1gXykmemVW8YDKkIt8agcpNkQa7fZofZudn0wy87it+
+    f1ZBACVu+xqixlhPOnwJytq09SWICcIFPEGj7gpXqWSWCoSDVBFT6oTN7OxNn98t
+    ZD3mF3FyauUzVOjbzXcPTiVXL9v4FYnVsWpDqHEIambJKQDaQNja0Tt9ddhUb1il
+    w1Uc+B0FUzH0fjp3ypTLIjzDGivB9nk08JnP9/WG44s9Vwe1iV6alqDEpM8=
+    -----END CERTIFICATE-----
+  servers:
+  - https://kops-controller.internal.niteshnepali.com.np:3988/
+InstanceGroupName: nodes-us-east-1b
+InstanceGroupRole: Node
+NodeupConfigHash: nwbc4RKc5H6/YyeP+Fo3vq+XgTJBIjB+5jil2y22rzQ=
 
 __EOF_KUBE_ENV
 

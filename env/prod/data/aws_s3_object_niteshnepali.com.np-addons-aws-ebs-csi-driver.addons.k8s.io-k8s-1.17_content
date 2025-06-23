@@ -875,8 +875,8 @@ spec:
       - args:
         - controller
         - --endpoint=$(CSI_ENDPOINT)
-        - --k8s-tag-cluster-id=k8s.niteshnepali.com.np
-        - --extra-tags=KubernetesCluster=k8s.niteshnepali.com.np
+        - --k8s-tag-cluster-id=niteshnepali.com.np
+        - --extra-tags=KubernetesCluster=niteshnepali.com.np
         - --http-endpoint=0.0.0.0:3301
         - --batching=true
         - --logging-format=text

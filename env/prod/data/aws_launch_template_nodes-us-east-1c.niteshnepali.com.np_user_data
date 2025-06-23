@@ -126,32 +126,32 @@ ensure-install-dir
 
 cat > conf/kube_env.yaml << '__EOF_KUBE_ENV'
 CloudProvider: aws
-ClusterName: k8s.niteshnepali.com.np
+ClusterName: niteshnepali.com.np
 ConfigServer:
   CACertificates: |
     -----BEGIN CERTIFICATE-----
-    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
+    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
     -----END CERTIFICATE-----
   servers:
-  - https://kops-controller.internal.k8s.niteshnepali.com.np:3988/
-InstanceGroupName: nodes-us-east-1b
+  - https://kops-controller.internal.niteshnepali.com.np:3988/
+InstanceGroupName: nodes-us-east-1c
 InstanceGroupRole: Node
-NodeupConfigHash: 1UaQNXsd/cgKr7EutoIw22IbhuaOUgMZF6N9/t88vn0=
+NodeupConfigHash: nwbc4RKc5H6/YyeP+Fo3vq+XgTJBIjB+5jil2y22rzQ=
 
 __EOF_KUBE_ENV
 

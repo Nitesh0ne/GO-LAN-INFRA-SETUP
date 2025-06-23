@@ -202,7 +202,7 @@ spec:
         - name: ENABLE_SQS_TERMINATION_DRAINING
           value: "true"
         - name: QUEUE_URL
-          value: https://sqs.us-east-1.amazonaws.com/869935088546/k8s-niteshnepali-com-np-nth
+          value: https://sqs.us-east-1.amazonaws.com/869935088546/niteshnepali-com-np-nth
         - name: DELETE_SQS_MSG_IF_NODE_NOT_FOUND
           value: "false"
         - name: WORKERS

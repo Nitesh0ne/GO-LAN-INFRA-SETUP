@@ -4,7 +4,7 @@
       "Action": "ec2:AttachVolume",
       "Condition": {
         "StringEquals": {
-          "aws:ResourceTag/KubernetesCluster": "k8s.niteshnepali.com.np",
+          "aws:ResourceTag/KubernetesCluster": "niteshnepali.com.np",
           "aws:ResourceTag/k8s.io/role/master": "1"
         }
       },
@@ -18,7 +18,7 @@
         "s3:Get*"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::niteshnepali.com.np/k8s.niteshnepali.com.np/*"
+      "Resource": "arn:aws:s3:::niteshnepali.com.np/niteshnepali.com.np/*"
     },
     {
       "Action": [
@@ -28,7 +28,7 @@
         "s3:PutObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::niteshnepali.com.np/k8s.niteshnepali.com.np/backups/etcd/main/*"
+      "Resource": "arn:aws:s3:::niteshnepali.com.np/niteshnepali.com.np/backups/etcd/main/*"
     },
     {
       "Action": [
@@ -38,7 +38,7 @@
         "s3:PutObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::niteshnepali.com.np/k8s.niteshnepali.com.np/backups/etcd/events/*"
+      "Resource": "arn:aws:s3:::niteshnepali.com.np/niteshnepali.com.np/backups/etcd/events/*"
     },
     {
       "Action": [
@@ -86,7 +86,7 @@
       "Action": "ec2:CreateTags",
       "Condition": {
         "StringEquals": {
-          "aws:RequestTag/KubernetesCluster": "k8s.niteshnepali.com.np",
+          "aws:RequestTag/KubernetesCluster": "niteshnepali.com.np",
           "ec2:CreateAction": [
             "CreateVolume",
             "CreateSnapshot"
@@ -109,7 +109,7 @@
           "aws:RequestTag/KubernetesCluster": "true"
         },
         "StringEquals": {
-          "aws:ResourceTag/KubernetesCluster": "k8s.niteshnepali.com.np"
+          "aws:ResourceTag/KubernetesCluster": "niteshnepali.com.np"
         }
       },
       "Effect": "Allow",
@@ -122,7 +122,7 @@
       "Action": "ec2:CreateTags",
       "Condition": {
         "StringEquals": {
-          "aws:RequestTag/KubernetesCluster": "k8s.niteshnepali.com.np",
+          "aws:RequestTag/KubernetesCluster": "niteshnepali.com.np",
           "ec2:CreateAction": [
             "CreateSecurityGroup"
           ]
@@ -143,7 +143,7 @@
           "aws:RequestTag/KubernetesCluster": "true"
         },
         "StringEquals": {
-          "aws:ResourceTag/KubernetesCluster": "k8s.niteshnepali.com.np"
+          "aws:ResourceTag/KubernetesCluster": "niteshnepali.com.np"
         }
       },
       "Effect": "Allow",
@@ -173,6 +173,7 @@
         "ec2:DescribeVolumesModifications",
         "ec2:DescribeVpcs",
         "ec2:GetInstanceTypesFromInstanceRequirements",
+        "ec2:ModifyNetworkInterfaceAttribute",
         "ecr:BatchCheckLayerAvailability",
         "ecr:BatchGetImage",
         "ecr:DescribeRepositories",
@@ -238,7 +239,7 @@
       ],
       "Condition": {
         "StringEquals": {
-          "aws:ResourceTag/KubernetesCluster": "k8s.niteshnepali.com.np"
+          "aws:ResourceTag/KubernetesCluster": "niteshnepali.com.np"
         }
       },
       "Effect": "Allow",
@@ -255,7 +256,7 @@
       ],
       "Condition": {
         "StringEquals": {
-          "aws:RequestTag/KubernetesCluster": "k8s.niteshnepali.com.np"
+          "aws:RequestTag/KubernetesCluster": "niteshnepali.com.np"
         }
       },
       "Effect": "Allow",

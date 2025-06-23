@@ -18,6 +18,7 @@
         "ec2:DescribeInstanceTypes",
         "ec2:DescribeInstances",
         "ec2:DescribeRegions",
+        "ec2:ModifyNetworkInterfaceAttribute",
         "ecr:BatchCheckLayerAvailability",
         "ecr:BatchGetImage",
         "ecr:DescribeRepositories",

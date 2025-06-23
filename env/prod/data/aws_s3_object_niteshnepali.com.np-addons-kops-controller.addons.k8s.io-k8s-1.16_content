@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   config.yaml: |
-    {"clusterName":"k8s.niteshnepali.com.np","cloud":"aws","configBase":"s3://niteshnepali.com.np/k8s.niteshnepali.com.np","secretStore":"s3://niteshnepali.com.np/k8s.niteshnepali.com.np/secrets","server":{"Listen":":3988","provider":{"aws":{"nodesRoles":["nodes.k8s.niteshnepali.com.np"],"Region":"us-east-1"}},"serverKeyPath":"/etc/kubernetes/kops-controller/pki/kops-controller.key","serverCertificatePath":"/etc/kubernetes/kops-controller/pki/kops-controller.crt","caBasePath":"/etc/kubernetes/kops-controller/pki","signingCAs":["kubernetes-ca"],"certNames":["kubelet","kubelet-server"]}}
+    {"clusterName":"niteshnepali.com.np","cloud":"aws","configBase":"s3://niteshnepali.com.np/niteshnepali.com.np","secretStore":"s3://niteshnepali.com.np/niteshnepali.com.np/secrets","server":{"Listen":":3988","provider":{"aws":{"nodesRoles":["nodes.niteshnepali.com.np"],"Region":"us-east-1"}},"serverKeyPath":"/etc/kubernetes/kops-controller/pki/kops-controller.key","serverCertificatePath":"/etc/kubernetes/kops-controller/pki/kops-controller.crt","caBasePath":"/etc/kubernetes/kops-controller/pki","signingCAs":["kubernetes-ca"],"certNames":["kubelet","kubelet-server","kube-proxy"]}}
 kind: ConfigMap
 metadata:
   creationTimestamp: null
@@ -33,7 +33,7 @@ spec:
   template:
     metadata:
       annotations:
-        dns.alpha.kubernetes.io/internal: kops-controller.internal.k8s.niteshnepali.com.np
+        dns.alpha.kubernetes.io/internal: kops-controller.internal.niteshnepali.com.np
       creationTimestamp: null
       labels:
         k8s-addon: kops-controller.addons.k8s.io

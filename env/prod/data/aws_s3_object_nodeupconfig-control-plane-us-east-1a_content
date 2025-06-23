@@ -1,7 +1,7 @@
 APIServerConfig:
   API:
     dns: {}
-    publicName: api.k8s.niteshnepali.com.np
+    publicName: api.niteshnepali.com.np
   ClusterDNSDomain: cluster.local
   KubeAPIServer:
     allowPrivileged: true
@@ -41,19 +41,19 @@ APIServerConfig:
     requestheaderUsernameHeaders:
     - X-Remote-User
     securePort: 443
-    serviceAccountIssuer: https://api.internal.k8s.niteshnepali.com.np
-    serviceAccountJWKSURI: https://api.internal.k8s.niteshnepali.com.np/openid/v1/jwks
+    serviceAccountIssuer: https://api.internal.niteshnepali.com.np
+    serviceAccountJWKSURI: https://api.internal.niteshnepali.com.np/openid/v1/jwks
     serviceClusterIPRange: 100.64.0.0/13
     storageBackend: etcd3
   ServiceAccountPublicKeys: |
     -----BEGIN RSA PUBLIC KEY-----
-    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7vllFDOdJaLiHXoRcm4y
-    v2Htj3/ir4BvF+iKPdeyiXFuqxaGXqS4LcKPbuSPap7QFiilvBnY1fhVSsH7zPyi
-    3+7E0O4X2Jc9eI55c/q0kppphgvtCExONqDYsj9aYhwU9gosuajYGw3PUzE1UQl5
-    +WuJTI03zknexYkwm46bHHNLreEF0v0xO32BuZ0YNpdSpPy0OoofnBjn/S2/biKC
-    uTSKoMyp0e+1Ip1yXSKcMrJLAz2uaROAApxEOE0XWHcOoS9usuEktdqtMv/9dQAD
-    RjgPNEfaW5u2iNjvp3AAvCkW4PxbgnXIVP5EWJ8Il3Rf2EJOXgRxZUijlC+MnEbp
-    ZwIDAQAB
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw0SO3gc3BqHLFvBEaMuH
+    cKlLJFSYUe9X5hJoqgb1aZT/gpmLsObFR80tk5snJhJGW7Nu3c/RDnhoRZAdnVn9
+    uGsFZaXwxUslsMETvct2MmjhDQxkxLKbnYSGyxYhl77JwsuWb7M0vksnnzyGdSpt
+    xcQGZesDaAfbbkZ45LnWGH1k+aO47m9zSDv7sabt8WMIgmFHcnLdNAw0S/RYA/kS
+    xrbLfQvJysCcFssAUvx1ijsnJRtLesyPbZPGJ0rN3ZyULl5FywliteP2Y7wdePwQ
+    X4NXRAosCO/tDdL/qs0LKXu3oVlkXER10dzOt/0b52wdoeB2cDsitNiDLelURRt2
+    UQIDAQAB
     -----END RSA PUBLIC KEY-----
 Assets:
   amd64:
@@ -79,150 +79,150 @@ Assets:
 CAs:
   apiserver-aggregator-ca: |
     -----BEGIN CERTIFICATE-----
-    MIIDDDCCAfSgAwIBAgIMGEuarK1dMsz+YrLlMA0GCSqGSIb3DQEBCwUAMCIxIDAe
-    BgNVBAMTF2FwaXNlcnZlci1hZ2dyZWdhdG9yLWNhMB4XDTI1MDYyMTA3MTU0NloX
-    DTM1MDYyMTA3MTU0NlowIjEgMB4GA1UEAxMXYXBpc2VydmVyLWFnZ3JlZ2F0b3It
-    Y2EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDmN3CNuqlzeDdbjuli
-    8oQF5prZiG+dbB3mAl2PXrWtDAkwh+fHRUH2x8W0CR2+v6B10ibyOXC67DtAsdko
-    /JoC6/ih8xea7gHJAxtkXrdFac5rKOCNwYNtqvaPRUi/t0o5lV9wPh0FuUaIF7w6
-    MaYSmDA+mUi8Xo9fTmZUun6wPa4KmHBb6Y33zbNii1alArhNKPTvafOJWHYouRAs
-    uHxUkFdgf/tOSM3lLKtDg1khNBJcKXBAL2k734Ns1FOgkEettfosEu7f8TtysYxI
-    eXIXPtwK9MgH1n9nJ0vo7bvJ04oHPLPmIw4ALH64VlRBNx8kPj+C6iGY5oL0WlOi
-    D3/zAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0G
-    A1UdDgQWBBRYDknbfT+nxecSaohWpn0fm0+8ETANBgkqhkiG9w0BAQsFAAOCAQEA
-    pP770zS5KCORhRQ4cOy8nYjsa+HNuD3NvxtYIE26E25J+3m/APtffCHpb/AlHF2r
-    I3/sz+Pk9og23DEnMpKwL2BxgEIEDzdY7Wqgjtv/H6I/mero/hC2IL+ilR0Rczwq
-    lLi8WMfJ/uQP1f9j9otm93/bSs0A66HxU/jIr7EOxjM08eve5h1+RpTCMIU4IIWH
-    8xaKx7c0LWUHJfScfLUCIPLk2SDN6/mKK4MspU5nkWtT3szhylwOR+jMzpjRk4Re
-    KYgQ3HRuMC/KcsvdKzD/OiywEX0H/FKYJS+66uznXIRmqcE5aLaHVKuFArd7OsHE
-    XCDwgkh1clb9pq5lyU3kcg==
+    MIIDDDCCAfSgAwIBAgIMGEuvK2TCf9SvZu7VMA0GCSqGSIb3DQEBCwUAMCIxIDAe
+    BgNVBAMTF2FwaXNlcnZlci1hZ2dyZWdhdG9yLWNhMB4XDTI1MDYyMTEzMzEyMVoX
+    DTM1MDYyMTEzMzEyMVowIjEgMB4GA1UEAxMXYXBpc2VydmVyLWFnZ3JlZ2F0b3It
+    Y2EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9fwEdSH4ZYnh9mw8q
+    mTRLZ1hAsaPsFWjiq/szMnaJHNKNvkdiZoGMg2JJd++JQpmlzJH2cXVfKKrYyFnl
+    xtu3LJbQujoCPWknqJPO6rX+i+PDuUcqbU/mOZQS4qX/cX8f/atIHIjmHGCa+RBs
+    usnHientwFMSOEIiu05YGe5Gi20yUJiyEUxYNt2p5zlS16IkjSudljNQpv+5tq9R
+    EEclUNuKxlV7SP7CIlOcaCpQebMoLT2WMTw/9r0ywpF5Exk4vwlrUcJGpc9z+iYB
+    7vppeRWUo6R63gsHk5Wwook6DVa27pOWT00t1nl9Z9cPWUDVl2FyYJ8t1b0yuGy5
+    TCwDAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0G
+    A1UdDgQWBBRW/mF/jQeXVHUxHe/VKPZvFhG6FzANBgkqhkiG9w0BAQsFAAOCAQEA
+    fUwuKkIO5ISmjtSNDk2boi/GziqzXccpOxRm9u46k5lWLdHlj9jCsVjFsOBpruGi
+    1PsQjDOrFeIlSWBknFhwm3hzRxVns6i+vwpBtJvyuOpe4Y3A1oolqn3mzCfTYWWf
+    18ljkutttF/pAH227bXeGot6JHr2huR1UC1JnWU871xk55bPSx6BEVzznIOtsJU5
+    EdE7AKdSibyioVp1e3qV0wqPDYF/RGWsVDhi2r0TJ1xAR1oJeTLhVsIIHi3hxgXG
+    iDj7ygvjQe05oSM2oxiAnFvm1Jp7XisjJMmdi4uTK2tnf1d+TQfGRg7hVB8FDXBS
+    DQWp6ao7tVoA6bk0qeiyIA==
     -----END CERTIFICATE-----
   etcd-clients-ca: |
     -----BEGIN CERTIFICATE-----
-    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
+    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
     -----END CERTIFICATE-----
   etcd-manager-ca-events: |
     -----BEGIN CERTIFICATE-----
-    MIIDCjCCAfKgAwIBAgIMGEuarK0zSqx6d0QAMA0GCSqGSIb3DQEBCwUAMCExHzAd
-    BgNVBAMTFmV0Y2QtbWFuYWdlci1jYS1ldmVudHMwHhcNMjUwNjIxMDcxNTQ3WhcN
-    MzUwNjIxMDcxNTQ3WjAhMR8wHQYDVQQDExZldGNkLW1hbmFnZXItY2EtZXZlbnRz
-    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvlRo0jnuQy9EccFEYlWv
-    lmsIlbulBtJaSSRu8ai8foppv+92FBjqGfSMdztuMax1xMFEyPrRoFG1CC2Ihh3Q
-    vpefQg7ueG4tfxiRMtVHuh1PoEIKP4imLCUzUiSSq5v4/jq/tfNw4sPO7Jxzgt3O
-    1uKaClxbR5PkLrVcnKzGC2E/2p+Oshxx+vB8OUZqT8LOzuEJB2p/h7a9iR0Y8655
-    O8KAYby8B3OpXgG0drW1u4/1InBKGk9eURAAZF8FXCc/nDlFj+OQZmkSpr9+5l93
-    5Ol1cki89JdA4mhC/Lh5qXDDIbb9UEZOXZA6sr+1qEoQrNl/tv1jBhh/PtMhgvCC
-    6QIDAQABo0IwQDAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNV
-    HQ4EFgQUxrNjNUaNEpgwOX/itrjtnSkPe+4wDQYJKoZIhvcNAQELBQADggEBABm3
-    6osLWkZJrC+mMdo9Edzureiiw7K8cH8qzPblUUqcTTdN4t9rZu6leidd1eg2IKDk
-    CNx9SrZ31139qVCcSG/H2KwadkkpEymPl/v1fYI4ZoN6s6UKpDLUwzEFztI+19mj
-    f0GS8zqtDWHqQofdMueNiv371NGzrwOY8QYrDycX2kPODa38oXvJVPHqZ0pIjN0Q
-    MHVJqlyDj/oIu1IlNbUT9Z+R7QKzNff6lVuE2cDeuhlU2tjnBI0S08myntq8mCkG
-    PQ79UiM8OFF3bvBVVVgbm8rCdyJKtVafAJqZVis9mXScaV3/gvmm3dflx93dkB5K
-    UM6cHKLkIWlJAe0VZZo=
+    MIIDCjCCAfKgAwIBAgIMGEuvK2zUffgAR4y0MA0GCSqGSIb3DQEBCwUAMCExHzAd
+    BgNVBAMTFmV0Y2QtbWFuYWdlci1jYS1ldmVudHMwHhcNMjUwNjIxMTMzMTIxWhcN
+    MzUwNjIxMTMzMTIxWjAhMR8wHQYDVQQDExZldGNkLW1hbmFnZXItY2EtZXZlbnRz
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm4G9GXhMUmXNYJMWdaMQ
+    yxfgnSWxk4ZcGQXQIViYEKxVAQRBgl5mKd44XqRXl+KgTHbr056bRRVHBY9jCHzw
+    k3YvzoB2rhTUCyHMK1+of/Yp3u+0OrOnCaa686v2kCpNmWk34klyy7o03yOSUH6w
+    tUN5ALME1zjenoQHDP3biygxCYd5sggGDMwC829is2QE8vPDryCKjKr8kPQ58KBw
+    qSlmcXy3OfYzmSp33LJj2PXg4CBSf0kpR+Xw/hOXd9OhSAeEZLfomGPgB1qL8OX5
+    jEYxd2ildXFJJNkcose6ihViSdyh+7sUfM0ThNIEeP0gWJ6SaUUua/X3ogZFJq9s
+    FwIDAQABo0IwQDAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNV
+    HQ4EFgQUMtAzkmUji/d40hLCDrFmvQP0oDowDQYJKoZIhvcNAQELBQADggEBADYQ
+    2bgDV9LLxsQoq+Fgql/IHY+9SIOHrnwH9nJBs5qd8iFZu05cNtyPHfvq71xpljUQ
+    oxOL6Kgv+HsMgwakhLFGbP97mawqmEDikTRbc7L9a3kGpL82YGYFFhY2GD3NxeSn
+    upVAMs6LseXq0U/eKQCSYMWEwIcTJqF9cnTLwY3MqKqhdDNPQJcp2ajQLU0nlxAW
+    ElXtU2p01VbAo/oziaKKdHDQZfXx8he8wYkAzbElW4LSNBfcIweLtahmBnbP0i0A
+    jY4mKROUw8zoFidNbdZJ8Uty31jY9KSYEyH3fFjjEdLiu//DKkM+ZPsnNjGAgZCu
+    PYxSSdgAEoXOqkMb2AE=
     -----END CERTIFICATE-----
   etcd-manager-ca-main: |
     -----BEGIN CERTIFICATE-----
-    MIIDBjCCAe6gAwIBAgIMGEuarKs5/NzQqVVJMA0GCSqGSIb3DQEBCwUAMB8xHTAb
-    BgNVBAMTFGV0Y2QtbWFuYWdlci1jYS1tYWluMB4XDTI1MDYyMTA3MTU0N1oXDTM1
-    MDYyMTA3MTU0N1owHzEdMBsGA1UEAxMUZXRjZC1tYW5hZ2VyLWNhLW1haW4wggEi
-    MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjTXyDZlAGt3dusTTrF2opNPln
-    z1cwDYKmDJuU4Wdj7CXLH8BQ9HHpfw7B00sBhRiZi++BiYqu1t/eJ4wwL6qTA/I7
-    +8jLbpwGr0HMaf259L3PHUXnAwP/B5A6omoQsfuTKB9HpA7FqKTFY4LOg4fO+Vuc
-    bnhjbY7PCWvsEveEa+y2UCmdJu74b2kONIQ7NS6UIO0u7IWMq9dYnraBpyoHgKiX
-    G1NaDVKe/ykkoZrzR0p3MJ8YmTHgFAdBfJQw0cxyvQFNKUY3maCwYgMBC18d/mV+
-    Ab6YWT2FBJ+nzzuzIYK1QV5fhTgCk/Ip755bvrOMLN1D95VQbecotTLGW1u9AgMB
+    MIIDBjCCAe6gAwIBAgIMGEuvK2thAyQUwnhoMA0GCSqGSIb3DQEBCwUAMB8xHTAb
+    BgNVBAMTFGV0Y2QtbWFuYWdlci1jYS1tYWluMB4XDTI1MDYyMTEzMzEyMVoXDTM1
+    MDYyMTEzMzEyMVowHzEdMBsGA1UEAxMUZXRjZC1tYW5hZ2VyLWNhLW1haW4wggEi
+    MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDo7nz8VpzoSRLm9VdrKd4g2F5k
+    YoZgNja33N65P1hRXgfC+ZBf3R4uqc1SZD71Ence5VcUfbEu+Z4twv8wjZ5pOYbT
+    7WAuODqCsH6HI1k7gEWDZbJPVgZqKAMGxL34Jvaq18ru5C8mWnlv1rySdImJyBZS
+    jvZwy++XfFpesnkX20EVSkMaKIrOfSBAkteAPv8hJTlpgHxuE/vuHSwIqcc+sPZs
+    EznDSZYjjm0EEhIdDYdSK3S/IVjPi/mEYxeLE1xQ1lNKjQFuCWNtpzkMljAi47+k
+    ihrmLL2DvcDjBNLld4OQCcIPsDTZZGGGQIR8kmFKXJocEaOWhvUMxd36rzphAgMB
     AAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQW
-    BBS6spP91+9qnOJmMmRHn67aS6x45DANBgkqhkiG9w0BAQsFAAOCAQEANK3OMwNa
-    VE+LE5XXcI5TjzoL8V7kWlkzMNDZ30Jaxn5Xo57hFlH/mhM20OpYpaTBPttRQf/q
-    kQKhrMfpYU2HGaZICmydeMedRbpWL3Ir36URbjLaQ8tUr486WnGXwCeijbQg1zrT
-    eEz/8Z92kdWLm0P1XgDt2Ihf9PEWqLoo7pNfBMaJvXuoYr1hjFj5FlJxkWPm9Vyi
-    lBZ+IiPLquLOyf4pNTTLQfnKz2hU9jTMhAb57fKV9ZKwSsjcRo3TETg6CoOUBFq+
-    pXLgFFx6QkhhuPs0TTpVUQQTqTvdqWDYWQNKsRm1EIK9ssTI9LOIIsk9m8/3nhke
-    KTXIiX5bo9LS5A==
+    BBQN7uVP6Bm+ztcrYax0IMdM7VOEIzANBgkqhkiG9w0BAQsFAAOCAQEAPizMLvAD
+    gn1FRbNzdQWKrqxutBCA5vYMgGRrPthDxuwUYSUBgBQVaahjV8rZWczEkM+p1B93
+    0CFhm8SXkflp4ir7PgSdejCyomGgh3e/RmHfjx3RahRGHsSANsdhLa8TGgAHyHC1
+    IJvdpnJBxaSyc+GZe2Iw6GaiweUQJeYYtiW6i5SnnIl9GO+9ociPsieULZWCJCga
+    1/625TE/C+IWPd4J93PnrnnGHICRtp3kfcQ94h+2KMuclL1RRpOJPWuhFWw8KKwf
+    vz5RBguYzctLK80hzcSMsEBPutAsK0pZCUKVqUPvUuS4kfX2eJgZXtPY/fCkFB4D
+    SMPIumlByxOLBA==
     -----END CERTIFICATE-----
   etcd-peers-ca-events: |
     -----BEGIN CERTIFICATE-----
-    MIIDBjCCAe6gAwIBAgIMGEuarKsnPUCjuwv9MA0GCSqGSIb3DQEBCwUAMB8xHTAb
-    BgNVBAMTFGV0Y2QtcGVlcnMtY2EtZXZlbnRzMB4XDTI1MDYyMTA3MTU0N1oXDTM1
-    MDYyMTA3MTU0N1owHzEdMBsGA1UEAxMUZXRjZC1wZWVycy1jYS1ldmVudHMwggEi
-    MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCj49VeJH+odwzIRMbeBdPw8RlP
-    NOCcPIZeiQsHEg6ExwfVKNJH7+gz6FHbRPWDf6NUuiyZNNEep7DX11/K93UHois6
-    uojE4TZ46MxIY1VEAYelkzDp7+ez0sIu2/lbSOmNem2TgyQ6ZySeYBtIZ0xL/eup
-    WjkylDnD8p8Mj5s3DHEJ0cwbi2mV6pgslwczGnCIv3DQLDObyf3FfC4dfqUZDJIZ
-    53ss39BMB7YXRHMdkXTPDMiLVa3/SuyRwlGMgMCFx6rh49CNMna6vUAVlvcQkJX1
-    hb0Adw3IN+7IWL5q/yQhapMz9kS48NQEPSV6b95p2XJYbx7w7OtHMgmXhu2bAgMB
+    MIIDBjCCAe6gAwIBAgIMGEuvK2hDr4Rer7sEMA0GCSqGSIb3DQEBCwUAMB8xHTAb
+    BgNVBAMTFGV0Y2QtcGVlcnMtY2EtZXZlbnRzMB4XDTI1MDYyMTEzMzEyMVoXDTM1
+    MDYyMTEzMzEyMVowHzEdMBsGA1UEAxMUZXRjZC1wZWVycy1jYS1ldmVudHMwggEi
+    MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCDYZ8h+fGlmtH2VJ1DDW/iMcG
+    A83SzClRGnS+b45cZEf3Vs7jYp7addqtTEk1tdtne63G4NGSrgT2SfT3uLl9o4+w
+    diok//UaoVkE23PUn9ymmSLe5lqc2Vq0rXiUQyFcNgmgCUyX92wqS56XLLUyu1vq
+    DX/sAqbdD7wr4IkUXVSF2FuTPnvInrxxccG7rHfhriqLMqmRPaPKnA9vtatCwbh5
+    tKbbHIBFkf4F18/uKCIiuCLiLgD6/kxwOwistzWayigpHhS2+35O2O25qsFBdnG+
+    FxJH5AeDJfatmMrjEqgA0H6hFk2Qfmfq+0Luuq/C82Gh7Mys+S74a95b/d1rAgMB
     AAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQW
-    BBTe2VULmL5TEUK2torExuX+Az8eNTANBgkqhkiG9w0BAQsFAAOCAQEAi7s4LgEH
-    jFYRDvJXIAUzCS/eljrvtHJA+E+LX9pzEuGQyJ1C4UUq+f6CpYLAKbBWTABZeMUv
-    pnRAxrqQA4M/pRCFnqLjVmIPBQ32d3XCsMjyJ/RNYIHfoIsyPajYOE29l5jIT43S
-    /ZX2PB3ZQOCktGT3Of34muXjgmqtnWteOeOyP9YiAIki9hOBnKs78UtDSpx4Ownb
-    uX75iW02Rkc7gV5kkHT8ultytqfLGmjjpXpCgWiCiGwfwa03TrG/9/1WGWk4BusU
-    6jd0ZzUjrdkFfYlotVE82xREUbesSkuy3WJK+3+ipujJGhgsbFz/qy22IWf0U2iP
-    iHgwMrhGBamsqA==
+    BBRZhKFpbmKNUmWnAysoXDzSsC7VNDANBgkqhkiG9w0BAQsFAAOCAQEAwYsnNETc
+    7EXlAX2HwV/zKm9MDcH8TkL/vOR037UbIkR2uVlhbH2ZMHEUZ1yFvZDI/twKLzTh
+    J93nsvvJmruT34b4CkD/OIBHYJ+uZoHTyNIlxF9xEf8gRnGITEGDeVerYqKnsGL0
+    mIB4kUvfWs61nE4+vrLdGIQCTEFXCqyqMTYpmUmutyeD0zeqq4B7rs9x1wPo9adl
+    dIQWFXEqIkjJJ0/otsbbTwybqvxzL9BTTGn5s+9e8L2x1FrWKd/ql5zUtmI9Jyox
+    AcsLsXeZKNI5VYuWEjqi+/uRZMh10BUWfJcHghUE+GcdNwCiiHs4/bpBeK8irN/O
+    3odH7mia41SsFw==
     -----END CERTIFICATE-----
   etcd-peers-ca-main: |
     -----BEGIN CERTIFICATE-----
-    MIIDAjCCAeqgAwIBAgIMGEuarK1dMszawzsZMA0GCSqGSIb3DQEBCwUAMB0xGzAZ
-    BgNVBAMTEmV0Y2QtcGVlcnMtY2EtbWFpbjAeFw0yNTA2MjEwNzE1NDZaFw0zNTA2
-    MjEwNzE1NDZaMB0xGzAZBgNVBAMTEmV0Y2QtcGVlcnMtY2EtbWFpbjCCASIwDQYJ
-    KoZIhvcNAQEBBQADggEPADCCAQoCggEBAKWH6eU65rW6qE58kgjbcKI0j6MIzgUh
-    oG02/2RqUmuPJ1BgSRlmALivy0yzgVsbGTBTutPNNJu4W7GnjG45ayXci2uPLfQD
-    yKUknfdaiLy/PusrMxoZEIIHNGVYq2pyBXolwcqqG/IMsoUGIsvGqBzpDjEWR3Ux
-    17OBkQ8G5pHvpGlZSuBzmdNEwwNgPzxCZOaIzdjtjrnauc8Je4WPrSAHSp+QHzhI
-    xQWgairoYRDZXuh9XCA2xmGrp+871BpN4TdjrJn8tBQvn0DS+sxeOQs6EWiEIT7B
-    gZ609X2l/sxGuK00NfEpfQFAA3o7Yrj9Vir6iPoqnLRNw+8Rd8MSHVUCAwEAAaNC
-    MEAwDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFIU5
-    t4JMgg4w8/CFUdMCKk/ZyfpTMA0GCSqGSIb3DQEBCwUAA4IBAQB68B1MFrvNukYv
-    +0IpDTPaKqDquZ3Uk5Gz8xv42vEXjJJZPY81wjQ8Bs9NZB67KmSYfIgADuztRiaN
-    AMCBVbdUm0+cHZ9cIV0qviwNUvNuq+9upZruDqoVe9aTLrM4Ua/vjOCK7SsgTUhh
-    A/JLpoTJdoWkKWefQjnbnrJ1/Rc9Khk1QvQ4pJSGy1nityAttaWP5vSNKq0arWRS
-    9X3sdW32Syuk4eWM0vsmxzX2j9UopEOYq/aeS/CtmrSXclu42RwSho+6aKCEuJb0
-    HIQC7UxEkajKkiQDfFfOu+pXj1OGhXeUApFUmXGDl+TE59Ik3VYIxY2QweROQzmu
-    K0t6sBws
+    MIIDAjCCAeqgAwIBAgIMGEuvK2vFEsToF+Z+MA0GCSqGSIb3DQEBCwUAMB0xGzAZ
+    BgNVBAMTEmV0Y2QtcGVlcnMtY2EtbWFpbjAeFw0yNTA2MjExMzMxMjJaFw0zNTA2
+    MjExMzMxMjJaMB0xGzAZBgNVBAMTEmV0Y2QtcGVlcnMtY2EtbWFpbjCCASIwDQYJ
+    KoZIhvcNAQEBBQADggEPADCCAQoCggEBAOdecGvtMeHeQ6VcAvAlHzlcYh1F3Ik+
+    /vRRRT7uU3f1q/oDLqXvc2ovtaP90RqQUVNY0M+KNv8PRlM+6UdSBNL6hrPm0YzJ
+    p9wdKrOotOZ9k6xM/dFWYHX3O12EcPr+ln6RLGYh+5MSFE/YbthLaYizUj1mPoJ9
+    fYNRalDZ1P9z8gLAWUBE/t3VnaGUXgXoKya7KvMX7R22xw7VdFaJ+fzW75JbPll7
+    Ge0uPuNtJ/1a/yI4WBQggE7SEjcKT4uSZWocYqpMFIAD0jwCAXC1OzFH5LRqIUq5
+    NJ8J0Ga4CViSi9JgC6TlwbFqGW9/ug1r5E4gzSwfTfMLQpmzgSgFFJUCAwEAAaNC
+    MEAwDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFBGh
+    MS684zzHl9EwI8ov6ElbgAJAMA0GCSqGSIb3DQEBCwUAA4IBAQAE0lk32WqWfwAF
+    uycAvl0A3knk/8FBXc2NIAxt8yacnJhtJx2xxgaReGJ+1p+7UZvsAcbMvh3r54CM
+    eLQSR59bENVqkgi/yMnQJH7vbnS8HYIhnFP49WNNhuhI33iv8iMXkx7wA4gwRxXW
+    32lPpy7e/gzBTLo5fppvAq6I0bSxyxM436iDp8n1yNTI5U3cXrF+pI3Aehy0kWuE
+    yUX1jr2Ed/UiDz6HXGdY0eYsIeQ0O3zXGOhg9sS2oB2DWwFtm9RYzHgQEFqVvI7t
+    g+E+xhLuY1ATAb4nzx+ec/WgivfC/andW6FGapc6bToLsegJvMGCeagfiYeh/Vl+
+    qCpfIzEV
     -----END CERTIFICATE-----
   kubernetes-ca: |
     -----BEGIN CERTIFICATE-----
-    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
+    MIIC+DCCAeCgAwIBAgIMGEuvK5CY1jDW04I+MA0GCSqGSIb3DQEBCwUAMBgxFjAU
+    BgNVBAMTDWt1YmVybmV0ZXMtY2EwHhcNMjUwNjIxMTMzMTIyWhcNMzUwNjIxMTMz
+    MTIyWjAYMRYwFAYDVQQDEw1rdWJlcm5ldGVzLWNhMIIBIjANBgkqhkiG9w0BAQEF
+    AAOCAQ8AMIIBCgKCAQEAtYEfQhrgIj1tBHKuJrXi3EpTeUMb8rgUrz5xrkMeVy6A
+    iHGPk1dRWxLtGB+4vMRDk9Ao1IyKUVWI0/E73dTE2OSF78rZcthBaM2f+B/jkU6+
+    Sru1MJKizAenFHgL1OS/spJ4CER3NdKnKqLbcczDoblTDaByenOlr6WOuFjZTTVg
+    wsTGBqu4oSqXGYZ6f0RC714OM1XTDM3y4nRC22W6W7U+3QePonR9EHlaQvBumEcq
+    cfelYmyDnKBhNYUJ4CU8eGhLT897fYLWVcracl/MP83h6mkoRMJphKarWsHzK0Dk
+    LR18wPdBk4eujYos+kqA0gRYV0DaYL68XKBNkrKwQwIDAQABo0IwQDAOBgNVHQ8B
+    Af8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU7Mu+1li7NzxZxjyu
+    rqIjUOGjCcQwDQYJKoZIhvcNAQELBQADggEBADvTbWeCe+bRFEPrhE4VJi8k1rUI
+    GDUncNrxd7nYCsxGpirW+SA2m1Fa5LmYUkqM+nqmSwbzZvEPuoMV0d+8mlkLeXgz
+    1OLuhwPdv1uTRf/neihw+1gXykmemVW8YDKkIt8agcpNkQa7fZofZudn0wy87it+
+    f1ZBACVu+xqixlhPOnwJytq09SWICcIFPEGj7gpXqWSWCoSDVBFT6oTN7OxNn98t
+    ZD3mF3FyauUzVOjbzXcPTiVXL9v4FYnVsWpDqHEIambJKQDaQNja0Tt9ddhUb1il
+    w1Uc+B0FUzH0fjp3ypTLIjzDGivB9nk08JnP9/WG44s9Vwe1iV6alqDEpM8=
     -----END CERTIFICATE-----
-ClusterName: k8s.niteshnepali.com.np
+ClusterName: niteshnepali.com.np
 ControlPlaneConfig:
   KubeControllerManager:
     allocateNodeCIDRs: true
     attachDetachReconcileSyncPeriod: 1m0s
     cloudProvider: external
     clusterCIDR: 100.96.0.0/11
-    clusterName: k8s.niteshnepali.com.np
+    clusterName: niteshnepali.com.np
     configureCloudRoutes: false
     image: registry.k8s.io/kube-controller-manager:v1.32.4@sha256:25e29187ea66f0ff9b9a00114849c3a30b649005c900a8b2a69e3f3fa56448fb
     leaderElection:
@@ -249,15 +249,19 @@ Hooks:
 - null
 - null
 KeypairIDs:
-  apiserver-aggregator-ca: "7519040101953918238321717989"
-  etcd-clients-ca: "7519040102144607051921683018"
-  etcd-manager-ca-events: "7519040101942122537926738944"
-  etcd-manager-ca-main: "7519040101799892120385443145"
-  etcd-peers-ca-events: "7519040101794614893315034109"
-  etcd-peers-ca-main: "7519040101953918237724064537"
-  kubernetes-ca: "7519040104530090728807612583"
-  service-account: "7519040104554412273128351186"
-KubeProxy: null
+  apiserver-aggregator-ca: "7519136886788382295648038613"
+  etcd-clients-ca: "7519136887088155121958840663"
+  etcd-manager-ca-events: "7519136887369907550189751476"
+  etcd-manager-ca-main: "7519136887265345283222042728"
+  etcd-peers-ca-events: "7519136887040917781364062980"
+  etcd-peers-ca-main: "7519136887293509964307883646"
+  kubernetes-ca: "7519136889947189438093427262"
+  service-account: "7519136890968528793133990724"
+KubeProxy:
+  clusterCIDR: 100.96.0.0/11
+  cpuRequest: 100m
+  image: registry.k8s.io/kube-proxy:v1.32.4@sha256:152638222ecf265eb8e5352e3c50e8fc520994e8ffcff1ee1490c975f7fc2b36
+  logLevel: 2
 KubeletConfig:
   anonymousAuth: false
   cgroupDriver: systemd
@@ -283,23 +287,23 @@ KubeletConfig:
   - node-role.kubernetes.io/control-plane=:NoSchedule
 KubernetesVersion: 1.32.4
 Networking:
-  cilium: {}
+  calico: {}
   nonMasqueradeCIDR: 100.64.0.0/10
   serviceClusterIPRange: 100.64.0.0/13
 UpdatePolicy: automatic
 channels:
-- s3://niteshnepali.com.np/k8s.niteshnepali.com.np/addons/bootstrap-channel.yaml
+- s3://niteshnepali.com.np/niteshnepali.com.np/addons/bootstrap-channel.yaml
 configStore:
-  keypairs: s3://niteshnepali.com.np/k8s.niteshnepali.com.np/pki
-  secrets: s3://niteshnepali.com.np/k8s.niteshnepali.com.np/secrets
+  keypairs: s3://niteshnepali.com.np/niteshnepali.com.np/pki
+  secrets: s3://niteshnepali.com.np/niteshnepali.com.np/secrets
 containerdConfig:
   logLevel: info
   runc:
     version: 1.2.4
   version: 1.7.25
 etcdManifests:
-- s3://niteshnepali.com.np/k8s.niteshnepali.com.np/manifests/etcd/main-control-plane-us-east-1a.yaml
-- s3://niteshnepali.com.np/k8s.niteshnepali.com.np/manifests/etcd/events-control-plane-us-east-1a.yaml
+- s3://niteshnepali.com.np/niteshnepali.com.np/manifests/etcd/main-control-plane-us-east-1a.yaml
+- s3://niteshnepali.com.np/niteshnepali.com.np/manifests/etcd/events-control-plane-us-east-1a.yaml
 staticManifests:
 - key: kube-apiserver-healthcheck
   path: manifests/static/kube-apiserver-healthcheck.yaml

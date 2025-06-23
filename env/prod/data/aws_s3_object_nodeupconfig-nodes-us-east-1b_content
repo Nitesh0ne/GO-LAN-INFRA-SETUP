@@ -16,13 +16,17 @@ Assets:
   - d8df47708ca57b9cd7f498055126ba7dcfc811d9ba43aae1830c93a09e70e22d@https://github.com/containerd/nerdctl/releases/download/v1.7.4/nerdctl-1.7.4-linux-arm64.tar.gz
   - 0b615cfa00c331fb9c4524f3d4058a61cc487b33a3436d1269e7832cf283f925@https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.29.0/crictl-v1.29.0-linux-arm64.tar.gz
 CAs: {}
-ClusterName: k8s.niteshnepali.com.np
+ClusterName: niteshnepali.com.np
 Hooks:
 - null
 - null
 KeypairIDs:
-  kubernetes-ca: "7519040104530090728807612583"
-KubeProxy: null
+  kubernetes-ca: "7519136889947189438093427262"
+KubeProxy:
+  clusterCIDR: 100.96.0.0/11
+  cpuRequest: 100m
+  image: registry.k8s.io/kube-proxy:v1.32.4@sha256:152638222ecf265eb8e5352e3c50e8fc520994e8ffcff1ee1490c975f7fc2b36
+  logLevel: 2
 KubeletConfig:
   anonymousAuth: false
   cgroupDriver: systemd
@@ -44,7 +48,7 @@ KubeletConfig:
   shutdownGracePeriodCriticalPods: 10s
 KubernetesVersion: 1.32.4
 Networking:
-  cilium: {}
+  calico: {}
   nonMasqueradeCIDR: 100.64.0.0/10
   serviceClusterIPRange: 100.64.0.0/13
 UpdatePolicy: automatic

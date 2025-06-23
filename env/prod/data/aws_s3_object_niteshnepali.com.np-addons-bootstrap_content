@@ -6,7 +6,7 @@ spec:
   addons:
   - id: k8s-1.16
     manifest: kops-controller.addons.k8s.io/k8s-1.16.yaml
-    manifestHash: 834f57a2b14b9c39e4f2142f3f74d8fdefdeaca62dcde45d727ad1f5cd98bf2e
+    manifestHash: 249695921e104a0c3bee7c1429824ef1922fb1e9ab26b089dca593e17bedcd8a
     name: kops-controller.addons.k8s.io
     needsRollingUpdate: control-plane
     selector:
@@ -41,7 +41,7 @@ spec:
     version: 9.99.0
   - id: k8s-1.11
     manifest: node-termination-handler.aws/k8s-1.11.yaml
-    manifestHash: 6d0fa0985662b30baf9126ff55d8ea8c291816ad719a3ac8f7e86f195eca0e8e
+    manifestHash: 4a606fa40a1932774ad89bfc4186ea9fe3be655fdf1a78d72b1cead5b64d820f
     name: node-termination-handler.aws
     prune:
       kinds:
@@ -97,24 +97,71 @@ spec:
     selector:
       k8s-addon: storage-aws.addons.k8s.io
     version: 9.99.0
-  - id: k8s-1.16
-    manifest: networking.cilium.io/k8s-1.16-v1.15.yaml
-    manifestHash: d416c44305c8634e19e3a179fffa6b957501f632a2b7c15bcc18512e0cde3211
-    name: networking.cilium.io
-    needsRollingUpdate: all
+  - id: k8s-1.25
+    manifest: networking.projectcalico.org/k8s-1.25.yaml
+    manifestHash: 33acd3bad4b6895e439819814f5a5e2303d70e1b133bde8747efb07350f9df6f
+    name: networking.projectcalico.org
+    prune:
+      kinds:
+      - kind: ConfigMap
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+        namespaces:
+        - kube-system
+      - kind: Service
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - kind: ServiceAccount
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+        namespaces:
+        - kube-system
+      - group: admissionregistration.k8s.io
+        kind: MutatingWebhookConfiguration
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - group: admissionregistration.k8s.io
+        kind: ValidatingWebhookConfiguration
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - group: apps
+        kind: DaemonSet
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+        namespaces:
+        - kube-system
+      - group: apps
+        kind: Deployment
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+        namespaces:
+        - kube-system
+      - group: apps
+        kind: StatefulSet
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - group: policy
+        kind: PodDisruptionBudget
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+        namespaces:
+        - kube-system
+      - group: rbac.authorization.k8s.io
+        kind: ClusterRole
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - group: rbac.authorization.k8s.io
+        kind: ClusterRoleBinding
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - group: rbac.authorization.k8s.io
+        kind: Role
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
+      - group: rbac.authorization.k8s.io
+        kind: RoleBinding
+        labelSelector: addon.kops.k8s.io/name=networking.projectcalico.org,app.kubernetes.io/managed-by=kops
     selector:
       role.kubernetes.io/networking: "1"
     version: 9.99.0
   - id: k8s-1.18
     manifest: aws-cloud-controller.addons.k8s.io/k8s-1.18.yaml
-    manifestHash: 71b1878b67f52b6bfef6a26b2c3eb838718120b1d751bc90a781bdbb0ab28d4f
+    manifestHash: d13a48b904fd9a5a793b8aab2aae7b269a0cf31054304b8ca6beb8a45cc81456
     name: aws-cloud-controller.addons.k8s.io
     selector:
       k8s-addon: aws-cloud-controller.addons.k8s.io
     version: 9.99.0
   - id: k8s-1.17
     manifest: aws-ebs-csi-driver.addons.k8s.io/k8s-1.17.yaml
-    manifestHash: e56f0e2209c0eb48bc6752b8f09b94997b6ea49da75b1e7c4aaaa3eebed91a99
+    manifestHash: 6ed9b5ab8bc12232d57ffbe94c1044f98adae625899da35a5c1968f67ccaf5f4
     name: aws-ebs-csi-driver.addons.k8s.io
     selector:
       k8s-addon: aws-ebs-csi-driver.addons.k8s.io
